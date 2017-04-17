@@ -21,6 +21,10 @@ thiswd <- "~/Code/FlickrTas/data/"
 
 #save(api_key, file = paste0(thiswd, "api_key.rda"))
 #save(api_secret, file = paste0(thiswd, "api_secret.rda"))
+
+#You will need to get and load your own api_key and api_secret.
+# These can easily be obtained through your Flickr account.
+# Below files just contain characters with the key and secret.
 load(paste0(thiswd, "api_key.rda"))
 load(paste0(thiswd, "api_secret.rda"))
 
@@ -41,6 +45,7 @@ bbox <- c(144.44, -43.69, 148.63, -39.47)
 # ---------------
 # Authorize
 # ---------------
+#This should open a window in your browser and request authorization. 
 
 flickr.app <- oauth_app("r to flickr",api_key,api_secret)
 
@@ -49,6 +54,7 @@ flickr.endpoint <- oauth_endpoint(
   , authorize = "https://www.flickr.com/services/oauth/authorize"
   , access = "https://www.flickr.com/services/oauth/access_token"
 )
+
 
 tok <- oauth1.0_token(
   flickr.endpoint
